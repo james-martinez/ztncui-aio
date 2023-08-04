@@ -2,6 +2,8 @@
 
 cd /tmp
 
+ZT_PORT=${ZT_PORT:-9993}
+
 # If the file not exists, mean we need to initialize
 if [ ! -f /var/lib/zerotier-one/identity.secret ] ; then 
     echo "Zerotier-One Configuration is **NOT** initialized."
@@ -18,4 +20,4 @@ else
 fi
 
 # zt1 must run as root.
-/usr/sbin/zerotier-one
+/usr/sbin/zerotier-one -p "$ZT_PORT"
