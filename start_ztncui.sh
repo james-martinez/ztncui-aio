@@ -21,6 +21,7 @@ MYADDR=${MYADDR}
 HTTP_ALL_INTERFACES=${HTTP_ALL_INTERFACES}
 HTTP_PORT=${HTTP_PORT:-3000}
 HTTPS_PORT=${HTTPS_PORT:-3443}
+ZT_ADDR=${ZT_ADDR:-localhost:9993}
 
 while [ ! -f /var/lib/zerotier-one/authtoken.secret ]; do
     echo "ZT1 AuthToken is not found... Wait for ZT1 to start..."
@@ -34,6 +35,7 @@ cd /opt/key-networks/ztncui
 echo "NODE_ENV=production" > /opt/key-networks/ztncui/.env
 echo "MYADDR=$MYADDR" >> /opt/key-networks/ztncui/.env
 echo "HTTP_PORT=$HTTP_PORT" >> /opt/key-networks/ztncui/.env
+echo "ZT_ADDR=$ZT_ADDR" >> /opt/key-networks/ztncui/.env
 if [ ! -z $HTTP_ALL_INTERFACES ]; then
   echo "HTTP_ALL_INTERFACES=$HTTP_ALL_INTERFACES" >> /opt/key-networks/ztncui/.env
 else
